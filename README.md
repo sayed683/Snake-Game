@@ -8,3 +8,5 @@ the front side contain three files :
 
 3-style.css this has the style for cnavas the frame that contain the game ,
 and the style for background color for bage .
+
+-- add a virual environment called STAR to isolate the project.

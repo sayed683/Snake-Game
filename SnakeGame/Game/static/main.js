@@ -14,6 +14,9 @@ var rows = 20;
 // tools to set style , width , height and positions
 var tools;
 
+// score board
+let score = 0;
+
 
 // snake positions (x , y)
 var snakeX = cellSize * 10;
@@ -81,9 +84,17 @@ function update(){
     if(snakeX == foodX && snakeY == foodY){
         // increase snake body
         snakeBody.push([foodX , foodY]);
+
+        // increase score by one
+        score ++
+
         // change the food position
         placeFood();
     }
+
+    // display score board
+    tools.fillStyle = "#67c367";
+    tools.fillText("Score: " + score , 10 , 20);
 
     // tell the sanke body pieces : every piece follow the piece that has the greater index
     for( var i = snakeBody.length - 1; i > 0; i --){

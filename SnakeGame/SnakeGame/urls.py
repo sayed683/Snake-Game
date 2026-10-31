@@ -15,10 +15,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from Game.views import start_game
+from django.urls import path , include
+
+
+# from Game.views import start_game
+# isolate game app urls
+from Game import urls
+
+# isolate Qwen app urls
+from Qwen_Model import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("" , start_game),
+    # game app url's
+    path("Game/" , include('Game.urls')),
+    # qwen app url's
+    path('Chat_App/' , include('Qwen_Model.urls')),
 ]
